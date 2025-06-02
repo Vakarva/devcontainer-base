@@ -1,0 +1,52 @@
+{
+    "name": "Devcontainer base",
+    "build": {
+        "dockerfile": "Containerfile"
+    },
+
+    // Mount the local workspace folder to /workspace
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+    // Remember location of python install by uv, if present
+    "mounts": [
+        "source=uv-python-cache,target=/root/.local/share/uv,type=volume"
+    ],
+
+    "features": {
+        "ghcr.io/devcontainers/features/github-cli:latest": "{}"
+    },
+
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "[python]": {
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": "explicit"
+                    },
+                    "editor.defaultFormatter": "charliermarsh.ruff"
+                },
+                "editor.formatOnSave": true,
+                "notebook.codeActionsOnSave": {
+                    "notebook.source.organizeImports": "explicit"
+                },
+                "notebook.formatOnSave.enabled": true,
+                "editor.tabSize": 4,
+                "files.eol": "\n",
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            },
+            "extensions": [
+                "charliermarsh.ruff",
+                "dbaeumer.vscode-eslint",
+                "esbenp.prettier-vscode",
+                "humao.rest-client",
+                "matangover.mypy",
+                "ms-azuretools.vscode-containers",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "ue.alphabetical-sorter"
+            ]
+        }
+    }
+}

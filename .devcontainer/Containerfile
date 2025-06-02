@@ -1,0 +1,38 @@
+# Use latest stable Debian slim image as base
+FROM debian:12-slim
+
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive \
+    NVM_DIR=/root/.nvm \
+    NVM_VERSION=0.40.3 \
+    NODE_VERSION=lts/*
+
+# Install essential tools
+RUN apt-get update && apt-get -y install --no-install-recommends \
+    curl \
+    wget \
+    git \
+    zsh \
+    ca-certificates \
+    # Clean up apt cache
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    # Set zsh as the default shell for root user
+    && chsh -s /bin/zsh root \
+    # Install Oh My Zsh and plugins
+    && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended \
+    && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" \
+    && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions \
+    && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting \
+    # Install Node Version Manager (NVM)
+    # NOTE: ~/.zshrc needs to exist for the following script to add NVM's configurations
+    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | PROFILE=/root/.zshrc bash \
+    # Load NVM and install Node.js version from NVM_VERSION environment variable
+    && bash -c "source $NVM_DIR/nvm.sh && nvm install $NODE_VERSION" \
+    # Install uv (for Python version and depenedency management)
+    && curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Load custom zsh configuration
+# COPY ./shell-config/.zshrc /root/.zshrc
+
+
