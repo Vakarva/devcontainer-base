@@ -16,6 +16,7 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     git \
     zsh \
     ca-certificates \
+    openssh-client \
     fontconfig \
     # Clean up apt cache
     && apt-get clean \
