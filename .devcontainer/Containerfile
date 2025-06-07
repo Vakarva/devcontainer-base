@@ -7,9 +7,6 @@ ENV DEBIAN_FRONTEND=noninteractive \
     NVM_VERSION=0.40.3 \
     NODE_VERSION=lts/*
 
-# Copy in fonts for use with Powerlevel10k (p10k) theme
-COPY ./shell-config/fonts/*.ttf /usr/share/fonts/truetype/
-
 # Install essential tools
 RUN apt-get update && apt-get -y install --no-install-recommends \
     curl \
@@ -18,7 +15,6 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     zsh \
     ca-certificates \
     openssh-client \
-    fontconfig \
     # Clean up apt cache
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
@@ -29,8 +25,6 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" \
     && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions \
     && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting \
-    && fc-cache -fv \
-    # && p10k configure \
     # Install Node Version Manager (NVM)
     # NOTE: ~/.zshrc needs to exist for the following script to add NVM's configurations
     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | PROFILE=/root/.zshrc bash \
