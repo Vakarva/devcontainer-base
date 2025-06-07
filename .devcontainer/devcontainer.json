@@ -42,7 +42,6 @@
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
                 "humao.rest-client",
-                "matangover.mypy",
                 "ms-azuretools.vscode-containers",
                 "ms-python.python",
                 "ms-python.vscode-pylance",
