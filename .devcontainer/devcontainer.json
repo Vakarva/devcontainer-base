@@ -11,10 +11,6 @@
     // Mount the local workspace folder to /workspace
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
 
-    "features": {
-        "ghcr.io/devcontainers/features/github-cli:1": {}
-    },
-
     "customizations": {
         "vscode": {
             "settings": {
