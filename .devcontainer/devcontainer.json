@@ -14,13 +14,16 @@
     "customizations": {
         "vscode": {
             "settings": {
-                "editor.defaultFormatter": "esbenp.prettier-vscode",
+                "[markdown]": {
+                    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+                },
                 "[python]": {
                     "editor.codeActionsOnSave": {
                         "source.organizeImports": "explicit"
                     },
                     "editor.defaultFormatter": "charliermarsh.ruff"
                 },
+                "editor.defaultFormatter": "esbenp.prettier-vscode",
                 "editor.formatOnSave": true,
                 "notebook.codeActionsOnSave": {
                     "notebook.source.organizeImports": "explicit"
@@ -34,6 +37,7 @@
             },
             "extensions": [
                 "charliermarsh.ruff",
+                "DavidAnson.vscode-markdownlint",
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
                 "humao.rest-client",
@@ -41,7 +45,8 @@
                 "ms-python.python",
                 "ms-python.vscode-pylance",
                 "ms-toolsai.jupyter",
-                "ue.alphabetical-sorter"
+                "ue.alphabetical-sorter",
+                "yzhang.markdown-all-in-one"
             ]
         }
     }
