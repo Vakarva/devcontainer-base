@@ -1,16 +1,15 @@
 {
     "name": "Devcontainer base",
     "build": {
-        "dockerfile": "Containerfile"
+        "dockerfile": "Containerfile",
+        "args": {
+            "NODE_VERSION": "lts/*",
+            "PYTHON_VERSIONS": ""
+        }
     },
 
     // Mount the local workspace folder to /workspace
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
-
-    // Remember location of python install by uv, if present
-    "mounts": [
-        "source=uv-python-cache,target=/root/.local/share/uv,type=volume"
-    ],
 
     "features": {
         "ghcr.io/devcontainers/features/github-cli:1": {}

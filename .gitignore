@@ -1,2 +1,9 @@
 # macOS automatically generates this transient metadata file to store directory display preferences (not needed in VCS)
 .DS_Store
+
+# Node.js
+node_modules/
+
+# Python
+.venv/
+__pycache__/
