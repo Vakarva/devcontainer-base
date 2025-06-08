@@ -2,7 +2,7 @@
 FROM debian:stable-slim
 
 ARG NVM_VERSION="0.40.3" \
-    # Defaults to latest stable Node.js version
+    # Defaults to latest LTS Node.js version
     NODE_VERSION="lts/*" \
     # Defaults to latest stable Python version
     PYTHON_VERSIONS=""

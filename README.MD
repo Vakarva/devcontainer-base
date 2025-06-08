@@ -95,7 +95,7 @@ Or you can reload your project on your local machine:
 
 ### Node.js
 
-By default, the latest stable version of Node.js is installed by nvm. You can configure this by changing the NVM_VERSION arg in `.devcontainer/devcontainer.json`. You can read more about using nvm in the [nvm documentation](https://github.com/nvm-sh/nvm#readme). The `node` alias is available in the terminal.
+By default, the latest LTS version of Node.js is installed by nvm. You can configure this by changing the NVM_VERSION arg in `.devcontainer/devcontainer.json`. You can read more about using nvm in the [nvm documentation](https://github.com/nvm-sh/nvm#readme). The `node` alias is available in the terminal.
 
 ### Python
 
