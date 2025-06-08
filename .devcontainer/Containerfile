@@ -1,5 +1,5 @@
 # Use latest stable Debian slim image as base
-FROM debian:12-slim
+FROM debian:stable-slim
 
 ARG NVM_VERSION="0.40.3" \
     # Defaults to latest stable Node.js version

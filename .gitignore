@@ -1,4 +1,7 @@
-# macOS automatically generates this transient metadata file to store directory display preferences (not needed in VCS)
+# Environment variables
+.env
+
+# macOS system files
 .DS_Store
 
 # Node.js
@@ -7,3 +10,6 @@ node_modules/
 # Python
 .venv/
 __pycache__/
+
+# Windows system files
+Thumbs.db

@@ -2,16 +2,32 @@
 
 **A simple [VS Code Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) with Node.js, Python, and Zsh.**
 
-## Overview
+This template creates a containerized development environment that includes both Node.js and Python runtimes, along with a configured Zsh shell. It's designed as a starting point for projects that need these languages in a consistent, reproducible environment.
 
-This repository contains a VS Code Dev Container configuration. It creates a slim **debian**-based container with minimal tools installed for developing with Node.js and Python. In particular, Node.js and Python are managed by **nvm** and **uv**, respectively. **Zsh** is the default shell, configured with the following plugins: **zsh-autosuggestions** and **zsh-syntax-highlighting**. **Powerlevel10k** is used as Zsh's theme.
+## Table of Contents
 
-## What's included
+-   [What's Inside](#whats-inside)
+-   [Prerequisites](#prerequisites)
+-   [Setup](#setup)
+    -   [Getting Started](#getting-started)
+    -   [Font Installation](#font-installation)
+    -   [Running the Dev Container](#running-the-dev-container)
+    -   [Shutting Down the Dev Container](#shutting-down-the-dev-container)
+-   [Usage](#usage)
+    -   [Node.js](#nodejs)
+    -   [Python](#python)
+    -   [Terminal](#terminal)
+-   [Customization](#customization)
+    -   [Container Configuration](#container-configuration)
+    -   [Shell Configuration](#shell-configuration)
+-   [Troubleshooting](#troubleshooting)
 
--   Slim [Debian](https://www.debian.org)-based container
+## What's Inside
+
+-   [Debian](https://www.debian.org)-Slim operating system
 -   [Git](https://git-scm.com)
 -   [GitHub CLI](https://cli.github.com)
--   [OpenSSH](https://www.openssh.com) client (for SSH agent forwarding to use host Git credentials)
+-   [OpenSSH](https://www.openssh.com) client (for SSH agent forwarding to use host's Git credentials)
 -   [curl](https://curl.se) & [Wget](https://www.gnu.org/software/wget/)
 -   [ca-certificates](https://packages.debian.org/sid/ca-certificates) (for secure HTTPS connections and package downloads)
 -   [Node.js](https://nodejs.org/) managed by [nvm](https://github.com/nvm-sh/nvm)
@@ -40,7 +56,7 @@ This repository contains a VS Code Dev Container configuration. It creates a sli
 1. Download the zipped repository to your local machine
 2. Extract to your project root
 
-### Font installation
+### Font Installation
 
 **Note: If you already have the MesloLGS NF fonts installed on your local machine, just do step 2.**
 
@@ -66,14 +82,14 @@ You can alter the font family in `.devcontainer/devcontainer.json`. If you do, y
 
 VS Code will build the container image and start the Dev Container.
 
-### Shutting down the Dev Container
+### Shutting Down the Dev Container
 
 You can simply close the VS Code window. This will automatically stop the container process (you can check check active containers via `podman ps` or `docker ps`).
 
-Or you can reload your project in your local machine by:
+Or you can reload your project on your local machine:
 
-1. Opening the Command Palette
-2. Selecting `Dev Containers: Reopen Folder Locally`
+1. Open the Command Palette
+2. Select `Dev Containers: Reopen Folder Locally`
 
 ## Usage
 
@@ -86,6 +102,10 @@ By default, the latest stable version of Node.js is installed by nvm. You can co
 By default, the latest stable version of Python is installed by uv. You can configure this by modifying the `PYTHON_VERSIONS` in the `args` object in `.devcontainer/devcontainer.json`. Note that you can install multiple Python versions by separating each version by a space: (ex: `"PYTHON_VERSIONS": "3.9 3.10 3.13"`).
 
 While nvm adds `node` directly to your PATH, uv uses a different approach in which Python runs through the `uv` command. Read more about using uv in the [uv documentation](https://docs.astral.sh/uv/).
+
+### Terminal
+
+Zsh loads automatically with all enhancements active.
 
 ## Customization
 
@@ -107,7 +127,7 @@ Edit the following files to customize the Dev Container to your specific needs:
 
 **The Dev Container is super slow**: Check [VS Code's performance optimization guide](https://code.visualstudio.com/remote/advancedcontainers/improve-performance) -- This is particularly felt on Windows machines.
 
-**Use with Podman**: Set `"dev.containers.dockerPath": "podman"` in your VS Code user settings ([official docs](https://code.visualstudio.com/remote/advancedcontainers/docker-options#_podman))
+**Use with Podman**: Set `"dev.containers.dockerPath": "podman"` in your local machine's VS Code user settings ([official docs](https://code.visualstudio.com/remote/advancedcontainers/docker-options#_podman))
 
 **Container won't start**: Verify that your containerization platform (Podman/Docker) is running
 
