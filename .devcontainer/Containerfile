@@ -27,8 +27,6 @@ RUN apt-get update && apt-get -y install --no-install-recommends \
     # Clean apt cache and package lists (saves ~20-50MB, which is trivial, but demonstrates apt caching behavior)
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    # Configure git default branch to be "main", since we are not brutes
-    && git config --global init.defaultBranch main \
     # Set zsh as the default shell for root user
     && chsh -s /bin/zsh root \
     # Install Oh My Zsh and plugins (--depth=1 option and value: only clones the latest commit, reducing image size)
