@@ -12,12 +12,13 @@ ENV DEBIAN_FRONTEND="noninteractive"
 
 # Install essential tools
 RUN apt-get update && apt-get -y install --no-install-recommends \
-    curl \
-    wget \
-    git \
-    zsh \
     ca-certificates \
+    curl \
+    git \
+    less \
     openssh-client \
+    wget \
+    zsh \
     # Install GitHub CLI, which isn't in Debian default repos (https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
     && wget -nv -O /etc/apt/keyrings/githubcli-archive-keyring.gpg https://cli.github.com/packages/githubcli-archive-keyring.gpg \
     && chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \

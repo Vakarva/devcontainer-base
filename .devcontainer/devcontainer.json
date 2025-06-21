@@ -32,8 +32,7 @@
                 "editor.tabSize": 4,
                 "files.eol": "\n",
                 "terminal.integrated.defaultProfile.linux": "zsh",
-                "terminal.integrated.fontFamily": "MesloLGS NF",
-                "terminal.integrated.fontSize": 14
+                "terminal.integrated.fontFamily": "MesloLGS NF"
             },
             "extensions": [
                 "charliermarsh.ruff",
